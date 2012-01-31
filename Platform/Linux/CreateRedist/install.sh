@@ -48,7 +48,7 @@ while [ "$1" ]; do
 		shift
 		rootfs=$1
 		;;
-	-h|--help) 
+	-h|--help)
 		echo "$usage"
 		exit 0
 		;;
@@ -84,7 +84,7 @@ export LD_LIBRARY_PATH=$INSTALL_LIB
 if [ "$install" = yes ]; then
 	printf "Installing PrimeSense Sensor\n"
 	printf "****************************\n\n"
-	
+
     # create config dir
     printf "creating config dir $INSTALL_ETC..."
     mkdir -p $INSTALL_ETC
@@ -153,14 +153,14 @@ elif [ "$uninstall" = yes ]; then
         rm -f $INSTALL_LIB/`basename $filename`
     done
     printf "OK\n"
-	
+
     # delete executables
     printf "removing executables..."
     for filename in $BIN_FILES; do
         rm -f $INSTALL_BIN/`basename $filename`
     done
     printf "OK\n"
-	
+
     # delete config dir
     printf "removing config dir..."
 	rm -rf $INSTALL_ETC

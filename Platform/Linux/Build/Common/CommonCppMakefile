@@ -7,8 +7,8 @@
 # Project makefile should define the following BEFORE including this file:
 # SRC_FILES - a list of all source files
 # Output name under one of the following:
-#     EXE_NAME (executable), 
-#     LIB_NAME (dynamic library) or 
+#     EXE_NAME (executable),
+#     LIB_NAME (dynamic library) or
 #     SLIB_NAME (static library) or
 # BIN_DIR - Bin directory (output dir)
 # INC_DIRS - a list of additional include directories
@@ -125,7 +125,7 @@ $(OUTPUT_FILE): $(OBJ_FILES)
 
 clean-objs:
 	rm -rf $(OBJ_FILES)
-	
+
 clean-defs:
 	rm -rf $(DEP_FILES)
 
