@@ -60,13 +60,15 @@ ifdef TARGET_SYS_ROOT
 	LDFLAGS += --sysroot=$(TARGET_SYS_ROOT)
 endif
 
-# set Debug / Release flags
-ifeq "$(CFG)" "Debug"
-	CFLAGS += -O0 -g
-endif
-ifeq "$(CFG)" "Release"
-	CFLAGS += -O2 -DNDEBUG
-endif
+# # set Debug / Release flags
+# ifeq "$(CFG)" "Debug"
+# 	CFLAGS += -O0 -g
+# endif
+# ifeq "$(CFG)" "Release"
+# 	CFLAGS += -O2 -DNDEBUG
+# endif
+
+CFLAGS += -DNDEBUG
 
 CFLAGS += $(INC_DIRS_OPTION) $(DEFINES_OPTION)
 LDFLAGS += $(LIB_DIRS_OPTION) $(USED_LIBS_OPTION)
