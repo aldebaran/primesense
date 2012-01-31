@@ -46,12 +46,15 @@ int main(int argc, char* argv[])
 
 	printf("Starting sensor server...\n");
 
+#ifdef PIECE_OF_SHIT_FROM_WINDOWSER
 	const XnChar* strConfigDir = ".";
 	if (argc >= 2)
 	{
 		strConfigDir = argv[1];
 	}
-
+#else
+	const XnChar* strConfigDir = "/etc/primesense";
+#endif
 	XnChar strConfigFile[XN_FILE_MAX_PATH];
 	nRetVal = XnSensorServerGetGlobalConfigFile(strConfigDir, strConfigFile, XN_FILE_MAX_PATH);
 	XN_CHECK_RC(nRetVal, "Resolving global config file");
@@ -62,11 +65,11 @@ int main(int argc, char* argv[])
 
 	nRetVal = XnFormatsInitFromINIFile(strConfigFile);
 	XN_CHECK_RC(nRetVal, "Initializing DDK");
-	
+
 	printf("Running...\n");
 	nRetVal = XnSensorServerRun(strConfigFile);
 	XN_CHECK_RC(nRetVal, "starting sensor server");
-	
+
 	printf("\nShutting down sensor server...\n");
 	XnDDKShutdown();
 
