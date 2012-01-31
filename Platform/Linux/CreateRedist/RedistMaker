@@ -9,6 +9,7 @@ function calc_jobs_number() {
 	else
 		N_CORES=$(grep "processor\W:" /proc/cpuinfo | wc -l)
 	fi
+        [ -n ${N_CORES} ]] || N_CORES=1
 	echo $((N_CORES*2))
 }
 
